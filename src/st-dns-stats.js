@@ -22,7 +22,43 @@ import { NotImplementedError } from '../extensions/index.js';
  * }
  *
  */
-export default function getDNSStats(/* domains */) {
+export default function getDNSStats(domains) {
   throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+  let stack = [];
+  let poppy = [];
+  let word = ".";
+  for(let i = 0;i < domains.length;i++) {
+    for(let j = 0;j < domains[i].length;j++) {
+      if(domains[i][j] == ".") {
+        poppy.push(word);
+        word = ".";
+      } else {
+        word = word + domains[i][j];
+      }
+    }
+    poppy.push(word);
+    word = ".";
+    stack.push(poppy);
+    poppy = [];
+  }
+
+  let result = [];
+
+for(let k = 0;k < stack.length;k++) {
+  for(let l = stack[k].length - 1;l > 0;l--) {
+    let count = 1;
+   if(!result.includes(stack[k][l]) && count == 1) {
+     result.push(stack[k][l]);
+     count++;
+   } else if (!result.includes(stack[k][l]) && count == 2) {
+    result.push(stack[k][l + 1] + stack[k][l]);
+    count++;
+   } else if (!result.includes(stack[k][l]) && count == 3) {
+    result.push(stack[k][l + 2] + stack[k][l + 1] + stack[k][l]);
+   }
+
+  }
+}
+
+  return stack;
 }

@@ -13,7 +13,25 @@ import { NotImplementedError } from '../extensions/index.js';
  * transform([1, 2, 3, '--discard-prev', 4, 5]) => [1, 2, 4, 5]
  * 
  */
-export default function transform(/* arr */) {
+export default function transform(arr) {
   throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+  if(typeof(arr) != "object") {
+    return "'arr' parameter must be an instance of the Array! if the arr is not an Array";
+  }
+  let poppy = [];
+  for(let i = 0;i < arr.length;i++) {
+   if(arr[i] == "--discard-next" && arr[i + 1] != undefined && typeof(arr[i + 1]) == "number") {
+     poppy.splice(i,1);
+   } else if(arr[i] == "--discard-prev" && poppy[poppy.length - 1] != undefined && typeof(poppy[poppy.length - 1]) == "number") {
+     poppy.splice(poppy.length - 1, 1);
+   } else if(arr[i] == "--double-next" && arr[i + 1] != undefined && typeof(arr[i + 1]) == "number") {
+    poppy.push(arr[i + 1]);
+   } else if(arr[i] == "--double-prev" && arr[i - 1] != undefined && typeof(arr[i - 1]) == "number") {
+     poppy.push(arr[i - 1]);
+   } else if (typeof(arr[i]) == "number") {
+     poppy.push(arr[i]);
+   }
+  }
+  return poppy;
 }
+

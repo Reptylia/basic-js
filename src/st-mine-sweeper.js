@@ -23,7 +23,52 @@ import { NotImplementedError } from '../extensions/index.js';
  *  [1, 1, 1]
  * ]
  */
-export default function minesweeper (/* matrix */) {
+export default function minesweeper (matrix) {
   throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+  let poppy = [[],[],[]];
+  let count = 0;
+  for(let i = 0;i < matrix.length;i++) {
+    for(let j = 0;j < matrix[i].length;j++) {
+   
+    
+    if(i > 0) {
+      if(matrix[i - 1][j] == true) {
+        count++;
+      }
+    } else if (i > 0 && j > 0) {
+      if(matrix[i - 1][j - 1] == true) {
+        count++;
+      }
+    } else if (i > 0 && j < matrix[i].length) {
+      if(matrix[i - 1][j + 1] == true) {
+        count++;
+      }
+    } else if (j > 0) {
+      if(matrix[i][j - 1] == true) {
+        count++;
+      }
+    } else if (j < matrix[i].length) {
+      if(matrix[i][j + 1] == true) {
+        count++;
+      }
+    } else if (i < matrix.length && j > 0) {
+      if(matrix[i + 1][j - 1] == true) {
+        count++;
+      }
+    } else if (i < matrix.length) {
+      if(matrix[i + 1][j] == true) {
+        count++;
+      }
+    } else if (i < matrix.length && j < matrix[i].length) {
+      if(matrix[i + 1][j + 1] == true) {
+        count++;
+      }
+    }
+    poppy[i][j] = count;
+    count = 0;
+    
+    }
+  
+  }
+  return poppy;
 }
