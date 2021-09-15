@@ -15,8 +15,8 @@ import { NotImplementedError } from '../extensions/index.js';
  */
 export default function transform(arr) {
   throw new NotImplementedError('Not implemented');
-  if(typeof(arr) != "object") {
-    return "'arr' parameter must be an instance of the Array! if the arr is not an Array";
+  if(!Array.isArray(arr)) {
+    throw new Error("'arr' parameter must be an instance of the Array!");
   }
   let poppy = [];
   for(let i = 0;i < arr.length;i++) {

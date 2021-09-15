@@ -14,5 +14,16 @@ import { NotImplementedError } from '../extensions/index.js';
 export default function getSeason(date) {
   throw new NotImplementedError('Not implemented');
  let poppy = date;
- return poppy.getMonth();
+ let month = poppy.getMonth();
+ if(month >= 0 && month < 2) {
+   return 'winter';
+ } else if (month > 2 && month < 6) {
+   return 'spring';
+ } else if (month > 5 && month < 9) {
+  return 'summer';
+} else if (month > 8 && month < 12) {
+  return 'autumn';
+} else if (month > 11 && month < 13) {
+  return 'winter';
+}  
 }
