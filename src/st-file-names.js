@@ -16,20 +16,20 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
 export default function renameFiles(names) {
-  throw new NotImplementedError('Not implemented');
-  let poppy = [];
-  for(let i = 0;i < names.length;i++) {
-    if(names[i].includes(poppy)) {
-      let lolly = names[i];
-      let result = lolly;
-      let count = 1;
-      for(;result.includes(poppy);count++) {
-       result = `${lolly}(${count})`
-      }
-      poppy.push(result);
-    } else {
-      poppy.push(names[i]);
-    }
-  }
-  return poppy
+  
+  // let poppy = [];
+  // for(let i = 0;i < names.length;i++) {
+  //   if(names[i].includes(poppy)) {
+  //     let lolly = names[i];
+  //     let result = lolly;
+  //     let count = 1;
+  //     for(;result.includes(poppy);count++) {
+  //      result = `${lolly}(${count})`
+  //     }
+  //     poppy.push(result);
+  //   } else {
+  //     poppy.push(names[i]);
+  //   }
+  // }
+  // return poppy
 }

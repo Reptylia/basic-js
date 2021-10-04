@@ -23,7 +23,7 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
 export default function getDNSStats(domains) {
-  throw new NotImplementedError('Not implemented');
+  
   let stack = [];
   let poppy = [];
   let word = ".";

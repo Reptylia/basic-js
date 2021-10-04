@@ -24,7 +24,7 @@ import { NotImplementedError } from '../extensions/index.js';
  * ]
  */
 export default function minesweeper (matrix) {
-  throw new NotImplementedError('Not implemented');
+  
   let poppy = [[],[],[]];
   let count = 0;
   for(let i = 0;i < matrix.length;i++) {

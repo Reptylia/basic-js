@@ -12,7 +12,7 @@ import { NotImplementedError } from '../extensions/index.js';
  * The result should be [-1, 150, 160, 170, -1, -1, 180, 190]
  */
 export default function sortByHeight(arr) {
-  throw new NotImplementedError('Not implemented');
+  
   return arr.sort(function compare(a, b) {
     if (a == -1 || b == -1) {
       return 0;

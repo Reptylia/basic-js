@@ -12,7 +12,7 @@ import { NotImplementedError } from '../extensions/index.js';
  * 
  */
 export default function getSeason(date) {
-  throw new NotImplementedError('Not implemented');
+  
  let poppy = date;
  let month = poppy.getMonth();
  if(month >= 0 && month < 2) {
